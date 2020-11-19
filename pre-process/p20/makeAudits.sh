@@ -1,19 +1,27 @@
 #!/bin/bash
 
 
-echo Populating audit
+echo "Populating audit"
 
 
 
-train="train/images/"
+TRAIN_IMAGES="train/images/"
+TRAIN_LABELS="train/labels/"
+
+TRAIN_AUDITS="audit/"
 
 
 
-~/Apps/ImageMagick/magick convert -delay 200 -loop 0 "${TRAIN_PATH}.0png" train/labels/0.png audit/0.gif
+
+# num_images= ls -1q $TRAIN_IMAGES | wc -l
 
 
+for ((i=0; i<=6; i++)); do
+        ~/Apps/ImageMagick/magick convert -delay 200 -loop 0 "${TRAIN_IMAGES}${i}.png" "${TRAIN_LABELS}${i}.png" "${TRAIN_AUDITS}${i}.gif"
+    done
 
-# for file in $files
+echo "Done"
+# for file in ${TRAIN_IMAGES}*.png
 # do
-#   echo $(basename $file)
+#   echo  $file
 # done
