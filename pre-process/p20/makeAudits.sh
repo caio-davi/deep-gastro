@@ -16,7 +16,7 @@ TRAIN_AUDITS="audit/"
 # num_images= ls -1q $TRAIN_IMAGES | wc -l
 
 
-for ((i=54; i<=63; i++)); do
+for ((i=50; i<=63; i++)); do
         ~/Apps/ImageMagick/magick convert -delay 200 -loop 0 "${TRAIN_IMAGES}${i}.png" "${TRAIN_LABELS}${i}.png" "${TRAIN_AUDITS}${i}.gif"
     done
 
